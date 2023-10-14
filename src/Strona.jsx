@@ -5,15 +5,29 @@ function Strona() {
     return (
       <div className="app">
         <header className="header">
-          <h1>Metroloty - Twoja Innowacyjna Technologia</h1>
-          <p>Wspieraj naszą inicjatywę i przyczynij się do wprowadzenia nowej technologii na rynek.</p>
+          <h1>Metroloty - Bo marzenia ludzkości zakopane są pod ziemią</h1>
+          <p>Wspieraj naszą inicjatywę i przyczynij się do wprowadzenia naszej innowacyjne technologii na rynek.</p>
         </header>
         <section className="main-content">
           <div className="technology-info">
-            <h2>O Naszej Technologii</h2>
+            <h2>MetroLoty™</h2>
             <p>
-              Tu umieść opis swojej innowacyjnej technologii oraz jej znaczenie dla społeczeństwa. 
-              Wizualizacje i multimedia pomogą lepiej zrozumieć, jak działa ta technologia.
+            Samoloty w Metrze To innowacyjna metoda komunikacji miejskiej pozwalająca, by w niskiej konkurującej z biletami autobusowymi cenie podróżować z prędkością ponad 300km/h. Całość opiera się na wykonaniu ogromnych sieci tunelowych zdolnych do pomieszczenia tam samolotu pasażerskiego. W tak skonstruowanym tunelu samolot będzie w stanie rozpędzić się do zadowalających prędkości pozostawiając w tyle przeżytki technologi takie jak samochody czy też pociągi. Brzmi świetnie? I takie właśnie jest, bo według naszych ciężkich obliczeń koszta za:
+            </p>
+            <p>
+            -wykonanie 24000 km tuneli o średnicy 200 metrów
+            </p>
+            <p>
+            -zakup ponad 100 samolotów 
+            </p>
+            <p>
+            -Konstrukcja innowacyjnych technologi
+            </p>
+            <p>
+            -Zakup najwyżej klasy komputerów
+            </p>
+            <p>
+            Będzie nas Kosztować tylko 30 000$!
             </p>
           </div>
           <div className="donation-section">
