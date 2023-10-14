@@ -1,0 +1,56 @@
+*{
+ margin: 0;
+}
+.app {
+  background-color: #f0f0f0;
+  font-family: 'Arial', sans-serif; 
+  text-align: center;
+
+  .header {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 5vw;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .technology-info,
+    .donation-section,
+    .petition-section,
+    .latest-news {
+      background-color: #ffffff;
+      padding: 5vw;
+      margin: 5vw;
+      border: 1px solid #3498db;
+      border-radius: 4vw;
+
+      h2 {
+        color: #3498db;
+        font-size: 5vw;
+      }
+    }
+  }
+
+  .contact {
+    background-color: #ffffff;
+    padding: 5vw;
+    margin: 5vw;
+    border: 1px solid #3498db;
+    border-radius: 4vw;
+  }
+
+  .footer {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 2vw;
+    font-size: 3vw;
+
+    p {
+      margin: 0;
+    }
+  }
+
+}
