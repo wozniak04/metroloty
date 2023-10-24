@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import axios from "axios"; // Dodaj import Axios
+import axios from "axios"; 
 
-// Renders errors or successfull transactions on the screen.
+
 function Message({ content }) {
   return <p>{content}</p>;
 }
 
 function Platnosc() {
   const initialOptions = {
-    "client-id": "test",
+    "client-id": "sb-hn43mx27592347@business.example.com",
     "enable-funding": "paylater,venmo,card",
     "disable-funding": "",
     "data-sdk-integration-source": "integrationbuilder_sc",
