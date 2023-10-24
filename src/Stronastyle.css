@@ -1,10 +1,22 @@
+@font-face {
+  font-family: 'gabarito-semibold';
+  src: url('./fonts/static/Gabarito-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'gabarito-bold';
+  src: url('./fonts/static/Gabarito-Bold.ttf') format('truetype');
+}
+
+
+
 * {
   margin: 0;
 }
 
 .app {
   background-color: #f0f0f0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'gabarito-semibold';
   text-align: center;
 }
 
@@ -31,13 +43,29 @@
   margin: 5vw;
   border: 1px solid #3498db;
   border-radius: 4vw;
-}
+   padding-top: 1em; 
+   padding-bottom: 1em; 
+ }
 
-h2 {
-  color: #3498db;
-  font-size: 3em;
-}
-
+ .donation-pp{
+  margin-top:3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+ }
+ 
+ h2 {
+  font-family: 'gabarito-bold';
+   color: #3498db;
+   font-size: 3em;
+   margin-bottom: 0.3em; 
+ }
+ 
+ p {
+   margin: 0; 
+ }
 
 
 .footer {
@@ -63,3 +91,4 @@ h2 {
   background: #f5f3f3;
   opacity:100%;
 }
+

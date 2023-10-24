@@ -1,5 +1,6 @@
 import React from "react"
 import './Stronastyle.css'
+import Platnosc from './platnosc.jsx'
 
 function Strona() {
     return (
@@ -18,7 +19,7 @@ function Strona() {
             -wykonanie 24000 km tuneli o średnicy 200 metrów
             </p>
             <p>
-            -zakup ponad 100 samolotów 
+            -zakup ponad 100 samolotów
             </p>
             <p>
             -Konstrukcja innowacyjnych technologi
@@ -35,7 +36,9 @@ function Strona() {
             <p>
               Przyczynij się do wprowadzenia technologii, wpłacając dotację. Każda kwota ma znaczenie.
             </p>
-            {/* Dodaj formularz do wpłacania dotacji */}
+            <div className="donation-pp">
+            <Platnosc/>
+            </div>
           </div>
           <div className="petition-section">
             <h2>Podpisz Naszą Petycję</h2>
