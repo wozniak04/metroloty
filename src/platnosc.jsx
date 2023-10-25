@@ -1,105 +1,23 @@
-import React, { useState } from "react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import axios from "axios"; 
+import React from "react";
 
-
-function Message({ content }) {
-  return <p>{content}</p>;
-}
-
-function Platnosc() {
-  const initialOptions = {
-    "client-id": "sb-hn43mx27592347@business.example.com",
-    "enable-funding": "paylater,venmo,card",
-    "disable-funding": "",
-    "data-sdk-integration-source": "integrationbuilder_sc",
-  };
-
-  const [message, setMessage] = useState("");
-
+const Platnosc = () => {
   return (
-    <div className="App">
-      <PayPalScriptProvider options={initialOptions}>
-        <PayPalButtons
-          style={{
-            shape: "rect",
-            layout: "vertical",
-          }}
-          createOrder={async () => {
-            try {
-              const response = await axios.post("/api/orders", {
-                cart: [
-                  {
-                    id: "YOUR_PRODUCT_ID",
-                    quantity: "YOUR_PRODUCT_QUANTITY",
-                  },
-                ],
-              });
-
-              const orderData = response.data;
-
-              if (orderData.id) {
-                return orderData.id;
-              } else {
-                const errorDetail = orderData?.details?.[0];
-                const errorMessage = errorDetail
-                  ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-                  : JSON.stringify(orderData);
-
-                throw new Error(errorMessage);
-              }
-            } catch (error) {
-              console.error(error);
-              setMessage(`Could not initiate PayPal Checkout...${error.message}`);
-            }
-          }}
-          onApprove={async (data, actions) => {
-            try {
-              const response = await axios.post(`/api/orders/${data.orderID}/capture`);
-
-              const orderData = response.data;
-              // Three cases to handle:
-              //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-              //   (2) Other non-recoverable errors -> Show a failure message
-              //   (3) Successful transaction -> Show confirmation or thank you message
-
-              const errorDetail = orderData?.details?.[0];
-
-              if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
-                // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                // recoverable state, per https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
-                return actions.restart();
-              } else if (errorDetail) {
-                // (2) Other non-recoverable errors -> Show a failure message
-                throw new Error(
-                  `${errorDetail.description} (${orderData.debug_id})`,
-                );
-              } else {
-                // (3) Successful transaction -> Show confirmation or thank you message
-                // Or go to another URL:  actions.redirect('thank_you.html');
-                const transaction =
-                  orderData.purchase_units[0].payments.captures[0];
-                setMessage(
-                  `Transaction ${transaction.status}: ${transaction.id}. See console for all available details`,
-                );
-                console.log(
-                  "Capture result",
-                  orderData,
-                  JSON.stringify(orderData, null, 2),
-                );
-              }
-            } catch (error) {
-              console.error(error);
-              setMessage(
-                `Sorry, your transaction could not be processed...${error.message}`,
-              );
-            }
-          }}
-        />
-      </PayPalScriptProvider>
-      <Message content={message} />
+    <div id="paypal-donate-button-container">
+      <div id="paypal-donate-button">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="8JB9AWCMFRZ94" />
+          <input
+            type="image"
+            src="https://www.paypalobjects.com/pl_PL/PL/i/btn/btn_donate_LG.gif"
+            border="0"
+            name="submit"
+            title="PayPal - The safer, easier way to pay online!"
+            alt="Przekaż darowiznę za pomocą przycisku PayPal"
+          />
+        </form>
+      </div>
     </div>
   );
-}
+};
 
 export default Platnosc;
