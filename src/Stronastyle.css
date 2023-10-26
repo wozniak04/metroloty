@@ -63,9 +63,44 @@
    margin-bottom: 0.3em; 
  }
  
+ .btn {
+  margin-top: 2vh;
+  display: inline-block;
+  background-color: #3498db; 
+  color: #ffffff; 
+  padding: 1em 1em; 
+  font-size: 1.5em; 
+  border: none;
+  border-radius: 0.5em; 
+  cursor: pointer; 
+  transition: background-color 0.3s, color 0.3s; 
+  text-align: center; 
+}
+
+.btn:hover {
+  background-color: #266791; 
+  color: #f0f0f0; 
+}
+
+
  p {
+  color: #333333;
+   font-size: 2em;
    margin: 0; 
+   margin-top: 3vh;
  }
+
+ ul {
+  list-style-type: disc;
+  
+}
+.list-item {
+  font-size: 1.75em;
+  text-align: left;
+  list-style-type: disc;
+  margin-top: 2vh; 
+  
+}
 
 
 .footer {
@@ -86,9 +121,35 @@
   border-radius: max-radius;
 }
 
-/* Tło paska przewijania */
+
 ::-webkit-scrollbar-track {
   background: #f5f3f3;
   opacity:100%;
 }
+
+
+
+.custom-popup {
+  background-color: #fff;
+  padding: 5vw; 
+  border-radius: 5vw; 
+  box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.2); /* Używamy vw zamiast px */
+  max-width: 80vw; /* Używamy vw zamiast px */
+  z-index: 1001;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Używamy vw zamiast px */
+  height: 100vh; /* Używamy vh zamiast px */
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
 

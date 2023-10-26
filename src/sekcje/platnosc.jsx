@@ -14,6 +14,7 @@ const Platnosc = () => {
             title="PayPal - The safer, easier way to pay online!"
             alt="Przekaż darowiznę za pomocą przycisku PayPal"
           />
+          <input type="hidden" name="return" value="http://localhost:3000/" />
         </form>
       </div>
     </div>
