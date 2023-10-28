@@ -1,7 +1,5 @@
-
-
 import React, { useState } from "react";
-import Podpis from "./Podpis"; 
+import Podpis from "./Podpis";
 
 const Petycje = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -10,7 +8,9 @@ const Petycje = () => {
     setPopupOpen(true);
   };
 
-  const handlePopupClose = () => {
+  const handlePopupClose = (data) => {
+
+    console.log(data);
     setPopupOpen(false);
   };
 

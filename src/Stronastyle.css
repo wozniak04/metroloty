@@ -130,11 +130,12 @@
 
 
 .custom-popup {
+  position: relative;
   background-color: #fff;
-  padding: 5vw; 
-  border-radius: 5vw; 
-  box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.2); /* Używamy vw zamiast px */
-  max-width: 80vw; /* Używamy vw zamiast px */
+  padding: 5vw;
+  border-radius: 5vw;
+  box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.2);
+  max-width: 80vw;
   z-index: 1001;
 }
 
@@ -142,14 +143,85 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Używamy vw zamiast px */
-  height: 100vh; /* Używamy vh zamiast px */
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
+
+/* Style dla formularza */
+.custom-popup h3 {
+  font-family: 'gabarito-bold';
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+.custom-popup form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-popup input,
+.custom-popup textarea {
+  width: 80%;
+  padding: 1vw;
+  margin: 1vh 0;
+  border: 1px solid #3498db;
+  border-radius: 1vw;
+  font-size: 1.5em;
+}
+
+.button-submit {
+  background-color: #3498db;
+  color: #fff;
+  padding: 1vw 2vw;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 1vw;
+  cursor: pointer;
+  margin-top: 2vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-submit:hover {
+  background-color: #269153;
+  color: #f0f0f0;
+}
+
+
+.close-button {
+  margin-top: 2vh;
+  font-size: 1.5em;
+  position: relative;
+  float: left;
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 1vw 2vw; /* Dostosuj wielkość przycisku */
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  z-index: 1002; /* Upewnij się, że przycisk jest na wierzchu */
+}
+
+.close-button:hover {
+  background-color: #e74848;
+  color: #ffffff; 
+  padding: 1vw 2vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  z-index: 1002;
+}
+
+
+
 
 
 
