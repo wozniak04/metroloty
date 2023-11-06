@@ -152,7 +152,7 @@
   z-index: 1000;
 }
 
-/* Style dla formularza */
+
 .custom-popup h3 {
   font-family: 'gabarito-bold';
   font-size: 2.5em;
@@ -200,13 +200,13 @@
   float: left;
   background-color: #3498db;
   color: #ffffff;
-  padding: 1vw 2vw; /* Dostosuj wielkość przycisku */
+  padding: 1vw 2vw; 
   border: none;
   border-radius: 0.5vw;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   text-align: center;
-  z-index: 1002; /* Upewnij się, że przycisk jest na wierzchu */
+  z-index: 1002; 
 }
 
 .close-button:hover {
@@ -221,7 +221,70 @@
 }
 
 
+@keyframes blink {
+  0% {
+    color: rgb(184, 65, 65);
+  }
+  10% {
+    color: #e74848;
+  }
+  20% {
+    color: rgb(200, 0, 0);
+  }
+  30% {
+    color: #d9534f;
+  }
+  40% {
+    color: rgb(220, 20, 60);
+  }
+  50% {
+    color: #c82333;
+  }
+  60% {
+    color: rgb(220, 20, 60);
+  }
+  70% {
+    color: #d9534f;
+  }
+  80% {
+    color: rgb(200, 0, 0);
+  }
+  90% {
+    color: #e74848;
+  }
+  100% {
+    color: rgb(184, 65, 65);
+  }
+}
 
+h4 {
+  animation: blink 3s infinite;
+}
 
+.close-button2 {
+  margin-top: 2vh;
+  font-size: 1.5em;
+  position: relative;
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 1vw 2vw; 
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  z-index: 1002; 
+}
+
+.close-button2:hover {
+  background-color: #e74848;
+  color: #ffffff; 
+  padding: 1vw 2vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  z-index: 1002;
+}
 
 
