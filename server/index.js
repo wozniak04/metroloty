@@ -3,6 +3,27 @@ const app=express()
 const sql=require('mysql')
 const bodyParser=require('body-parser')
 const cors=require('cors')
+require('dotenv').config()
+const nodemailer = require('nodemailer');
+
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.wp.pl',
+    port: 465, 
+    secure: true, 
+    auth: {
+      user: process.env.email, 
+      pass: process.env.haslo 
+    }
+  });
+  
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.log('dupa'+error);
+    } else {
+      console.log('Serwer pocztowy gotowy do wysyłania wiadomości');
+    }
+  });
 
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -18,6 +39,27 @@ const conn=sql.createConnection({
     database: 'metroloty'
 })
 
+const WysylanieMaila=(dane)=>{
+    
+    const mailOptions = {
+        from: 'Metroloty <kontaktmetroloty@wp.pl>',
+        to: dane.email,
+        subject: 'Podziękowania za podpisanie petycji',
+        text: `Dziękujemy ${dane.imie} za podpisanie petycji`
+      };
+      
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Wysyłanie e-maila nie powiodło się: ' + error);
+          return false;
+        } else {
+          console.log('E-mail został pomyślnie wysłany: ' + info.response);
+          return true;
+        }
+      });
+
+}
+
 
 app.get('/getAktualnosci',(req,res)=>{
     conn.query('SELECT tytul,artykul FROM aktualnosci;',(err,result)=>{
@@ -25,7 +67,8 @@ app.get('/getAktualnosci',(req,res)=>{
             console.log(err)
             res.send({log:false})
         }else{
-            res.send({result})
+
+            res.send({result,log:true})
         }
     })
 })
@@ -54,6 +97,7 @@ app.post('/czyktospodpisal',(req,res)=>{
             if(result.length>0){ 
                 res.send({log:false})
             }else{
+                WysylanieMaila({email:req.body.email,imie:req.body.imie})
                 res.send({log:true})
             }
         }

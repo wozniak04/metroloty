@@ -25,7 +25,7 @@ const Podpis = ({ onClose }) => {
       setzledane("popraw email")
     }
     else{
-      axios.post('http://localhost:5000/czyktospodpisal',{email:formData.email})
+      axios.post('http://localhost:5000/czyktospodpisal',{email:formData.email, imie:formData.imie})
       .then((res)=>{
         if(res.data.log){
           onClose(formData);
